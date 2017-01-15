@@ -34,4 +34,19 @@
         canvasA.add(circle);
     };
 
+    canvasA.on('object:moving', function (evt) {
+        var draggedObject = evt.target;
+        canvasB.on("mouse:move", function (e) {
+            if (draggedObject) {
+                var elm = draggedObject;
+                elm.left = e.e.offsetX;
+                elm.top = e.e.offsetY;
+                canvasB.add(elm);
+                canvasA.remove(draggedObject);
+                draggedObject = undefined;
+            }
+            canvasB.off("mouse:move");
+        });
+    });
+
 })();
