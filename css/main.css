@@ -3,6 +3,10 @@
     border: 1px solid gray;
 }
 
+button {
+    padding: 10px 20px;
+}
+
 .canvas-container {
     margin-top: 30px;
 }
